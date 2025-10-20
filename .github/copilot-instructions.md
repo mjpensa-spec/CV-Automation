@@ -1,7 +1,7 @@
 # CV-Automation Project
 
 ## Project Overview
-This is the CV-Automation repository, designed to automate tasks related to CV (Curriculum Vitae) creation, management, and processing.
+This is the CV-Automation repository, designed to automate tasks related to CV (Curriculum Vitae) creation, management, and processing. The project aims to help users streamline their CV workflow through automation tools and utilities.
 
 ## Project Goals
 - Automate CV generation and formatting
@@ -29,8 +29,8 @@ This is the CV-Automation repository, designed to automate tasks related to CV (
 ## Working with This Repository
 
 ### Making Changes
-- Always check existing code patterns before implementing new features
-- Maintain consistency with the existing codebase
+- Review existing code in the repository to understand established patterns and conventions
+- Maintain consistency with the existing codebase structure, naming conventions, and architectural patterns
 - Consider backwards compatibility when making changes
 - Test changes thoroughly before submitting
 
