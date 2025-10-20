@@ -310,7 +310,9 @@ class CVAutomation:
         # Get or create first slide
         if len(prs.slides) == 0:
             # Add a blank slide if template has no slides
-            blank_layout = prs.slide_layouts[6]  # Blank layout
+            # Find a suitable blank layout (usually last, but varies by template)
+            blank_layout_index = min(6, len(prs.slide_layouts) - 1)
+            blank_layout = prs.slide_layouts[blank_layout_index]
             slide = prs.slides.add_slide(blank_layout)
         else:
             slide = prs.slides[0]
@@ -389,11 +391,21 @@ class CVAutomation:
             description: Human-readable description
             data: Associated data (will be summarized for logging)
         """
+        # Create a meaningful summary of the data
+        data_str = str(data)
+        max_length = 500  # Configurable truncation length
+        
+        if len(data_str) > max_length:
+            # Truncate with ellipsis to indicate there's more
+            data_summary = data_str[:max_length] + '...'
+        else:
+            data_summary = data_str
+            
         entry = {
             'timestamp': datetime.now().isoformat(),
             'step': step,
             'description': description,
-            'data_summary': str(data)[:200]  # Truncate for log
+            'data_summary': data_summary
         }
         self.traceability_log.append(entry)
         
